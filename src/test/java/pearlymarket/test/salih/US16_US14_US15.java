@@ -372,6 +372,29 @@ public class US16_US14_US15 {
     }
 
     @Test
+    public void us14_CatalogVisibilityShopAndSearchResultsShopOnlySearchResultsOnlyHiddenOlarakSeçilebilmeli() {
+        HomePage homePage = new HomePage();
+        MyAccount myAccount = new MyAccount();
+        StoreManager storeManager = new StoreManager();
+        ChooseImage chooseImage = new ChooseImage();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(3);
+        assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
+        homePage.signInButton.click();
+        myAccount.userName.sendKeys("salihgunay");
+        myAccount.password.sendKeys("Salihguenay5390.");
+        myAccount.signInButton2.click();
+        homePage.signOut.click();
+        myAccount.storeManagerButton.click();
+        ReusableMethods.waitFor(3);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(storeManager.productButton).perform();
+        ReusableMethods.waitFor(3);
+        storeManager.addNew1.click();
+
+    }
+
+    @Test
     public void urunEklendigiProductKismindaGorulebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
