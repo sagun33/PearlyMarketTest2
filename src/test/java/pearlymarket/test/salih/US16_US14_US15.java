@@ -277,12 +277,98 @@ public class US16_US14_US15 {
         storeManager.addNew1.click();
         ReusableMethods.waitFor(3);
         storeManager.addNewCategory.click();
+        ReusableMethods.waitFor(3);
         storeManager.categoryName.sendKeys("gunay");
+        ReusableMethods.waitFor(3);
         Select select=new Select(storeManager.parentCategory);
-        select.selectByVisibleText("Car");
+        ReusableMethods.waitFor(3);
+        select.selectByVisibleText("Besin Takviyeleri");
+        ReusableMethods.waitFor(3);
         storeManager.add1.click();
+        Driver.closeDriver();
 
 
+    }
+
+    @Test
+    public void us14_ProductBrandsSeçilebilmeli() {
+        HomePage homePage = new HomePage();
+        MyAccount myAccount = new MyAccount();
+        StoreManager storeManager = new StoreManager();
+        ChooseImage chooseImage = new ChooseImage();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
+        homePage.signInButton.click();
+        myAccount.userName.sendKeys("salihgunay");
+        myAccount.password.sendKeys("Salihguenay5390.");
+        myAccount.signInButton2.click();
+        homePage.signOut.click();
+        myAccount.storeManagerButton.click();
+        ReusableMethods.waitFor(3);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(storeManager.productButton).perform();
+        ReusableMethods.waitFor(3);
+        storeManager.addNew1.click();
+        ReusableMethods.waitFor(3);
+        storeManager.productBrands.click();
+    }
+
+    @Test
+    public void us14_YeniProductBrandsEklenebilmeli () {
+        HomePage homePage = new HomePage();
+        MyAccount myAccount = new MyAccount();
+        StoreManager storeManager = new StoreManager();
+        ChooseImage chooseImage = new ChooseImage();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(3);
+        assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
+        homePage.signInButton.click();
+        myAccount.userName.sendKeys("salihgunay");
+        myAccount.password.sendKeys("Salihguenay5390.");
+        myAccount.signInButton2.click();
+        homePage.signOut.click();
+        myAccount.storeManagerButton.click();
+        ReusableMethods.waitFor(3);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(storeManager.productButton).perform();
+        ReusableMethods.waitFor(3);
+        storeManager.addNew1.click();
+        ReusableMethods.waitFor(3);
+        storeManager.addNewProductsBrands.click();
+        ReusableMethods.waitFor(3);
+
+        storeManager.productBrandsName.sendKeys("lkjöoj");
+        Select select=new Select(storeManager.parentProductBrand);
+        select.selectByVisibleText("Elegant Auto Group");
+        ReusableMethods.waitFor(3);
+        storeManager.add2.click();
+
+    }
+
+    @Test
+    public void us14_TagsEklenebilmeli () {
+        HomePage homePage = new HomePage();
+        MyAccount myAccount = new MyAccount();
+        StoreManager storeManager = new StoreManager();
+        ChooseImage chooseImage = new ChooseImage();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(3);
+        assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
+        homePage.signInButton.click();
+        myAccount.userName.sendKeys("salihgunay");
+        myAccount.password.sendKeys("Salihguenay5390.");
+        myAccount.signInButton2.click();
+        homePage.signOut.click();
+        myAccount.storeManagerButton.click();
+        ReusableMethods.waitFor(3);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(storeManager.productButton).perform();
+        ReusableMethods.waitFor(3);
+        storeManager.addNew1.click();
+        ReusableMethods.waitFor(3);
+        storeManager.tags.click();
+        ReusableMethods.waitFor(3);
+        storeManager.tagsYazi.click();
     }
 
     @Test

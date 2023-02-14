@@ -95,13 +95,13 @@ public class StoreManager {
     @FindBy(xpath = "(//*[@class='wcfm-checkbox checklist_type_product_cat '])[1]")
     public WebElement categories;
 
-    @FindBy(xpath = "(//*[@class='wcfm-checkbox checklist_type_product_brand '])[1]")
+    @FindBy(xpath = "(//*[@class='wcfm-checkbox checklist_type_product_brand '])[2]")
     public WebElement productBrands;
 
     @FindBy(xpath = "(//*[@class='wcfm_add_new_category_box wcfm_add_new_taxonomy_box'])[1]")
     public WebElement addNewCategory;
 
-    @FindBy(xpath = "(//*[@class='wcfm_add_new_category_box wcfm_add_new_taxonomy_box'])[2]")
+    @FindBy(xpath = "(//*[@class='description wcfm_full_ele wcfm_side_add_new_category wcfm_add_new_category wcfm_add_new_taxonomy'])[2]")
     public WebElement addNewProductsBrands;
 
     @FindBy(id="wcfm_new_cat")
@@ -121,6 +121,11 @@ public class StoreManager {
 
     @FindBy(xpath = "//*[@data-taxonomy='product_brand']")
     public WebElement add2;
+
+    @FindBy(className="description wcfm_full_ele wcfm_side_tag_cloud wcfm_fetch_tag_cloud")
+    public WebElement tagsYazi;
+    @FindBy(xpath = "//*[@aria-label='#MERCEDES (2 items)']")
+    public WebElement tags;
 
 
 
