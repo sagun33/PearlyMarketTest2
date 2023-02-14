@@ -18,3 +18,4 @@ public class ChooseImage {
     @FindBy(xpath = "(//*[@type='button'])[88]")
     public WebElement selectButton;
 }
+
