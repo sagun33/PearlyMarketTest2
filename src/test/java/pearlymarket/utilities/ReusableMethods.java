@@ -6,6 +6,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -30,6 +34,7 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
@@ -41,11 +46,13 @@ public class ReusableMethods {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+
     //========Hover Over=====//
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
+
     //==========Return a list of string given a list of Web Element====////
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
@@ -56,6 +63,7 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+
     //========Returns the Text of the element given an element locator==//
     public static List<String> getElementsText(By locator) {
         List<WebElement> elems = Driver.getDriver().findElements(locator);
@@ -67,6 +75,7 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+
     //   HARD WAIT WITH THREAD.SLEEP
 //   waitFor(5);  => waits for 5 second => Thread.sleep(5000)
     public static void waitFor(int sec) {
@@ -76,23 +85,28 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+
     //===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -103,6 +117,7 @@ public class ReusableMethods {
             }
         }
     }
+
     public static void waitForPageToLoad(long timeout) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -118,6 +133,7 @@ public class ReusableMethods {
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
     }
+
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeout) {
         //FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver()).withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS);
@@ -132,6 +148,7 @@ public class ReusableMethods {
         });
         return element;
     }
+
     /**
      * Performs double click action on an element
      *
@@ -140,6 +157,7 @@ public class ReusableMethods {
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
+
     /**
      * @param element
      * @param check
@@ -155,6 +173,7 @@ public class ReusableMethods {
             }
         }
     }
+
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
      *
@@ -168,6 +187,7 @@ public class ReusableMethods {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
+
     /**
      * Verifies whether the element matching the provided locator is displayed on page
      * fails if the element matching the provided locator is not found or not displayed
@@ -181,6 +201,7 @@ public class ReusableMethods {
             Assert.fail("Element not found: " + by);
         }
     }
+
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
      * fails if the element matching the provided locator is not found or not displayed
@@ -194,6 +215,7 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+
     /**
      * Verifies whether the element matching the provided WebElement is NOT displayed on page
      * fails if the element matching the WebElement is not found or not displayed
@@ -207,6 +229,7 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+
     /**
      * Verifies whether the element is displayed on page
      * fails if the element is not found or not displayed
@@ -224,36 +247,37 @@ public class ReusableMethods {
     //    SCROLLINTOVIEWJS
 //    @param : WebElement
 //    Verilen webelementin uzerine kaydirir
-    public static void scrollIntoViewJS(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    public static void scrollIntoViewJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     //    SAYFANIN EN ALTINA IN
 //    Bu method ile sayfanin en altina inebiliriz
-    public static void scrollEndJS(){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+    public static void scrollEndJS() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
     }
+
     //    Bu metot ile sayfanin en ustune cikabiliriz
-    public static void scrollTopJS(){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+    public static void scrollTopJS() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
 
     //    Bu metot ile belirli bir elemente JS executor ile tiklanabilir
-    public static void clickByJS(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
-        js.executeScript("arguments[0].click();",element);
+    public static void clickByJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", element);
     }
 
     //   gitmis oldugum metni elemente yazdirir
 //    bu method sendKeys metotuna bir alternatifdir.
 //    sendKeys oncelikli tercihimizdir
-    public static void typeWithJS(WebElement element, String metin){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
-        js.executeScript("arguments[0].setAttribute('value','"+metin+"')",element);
+    public static void typeWithJS(WebElement element, String metin) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].setAttribute('value','" + metin + "')", element);
 
     }
 
@@ -273,4 +297,39 @@ public class ReusableMethods {
 //             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
     }
 
+    /**
+     * @param filePath ABSOLUTE DOSYA YOLU
+     *  ORNEK : ReusableMethods.uploadFilePath("/Users/techproed/Desktop/logo.jpeg")
+     */
+    public static void uploadFilePath(String filePath){
+        try{
+            ReusableMethods.waitFor(3);
+//            Dosyayi bulmak icin kullanilir
+            StringSelection stringSelection = new StringSelection(filePath);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);
+//            ROBOT CLASS MASAUSTU UYGULAMARI ILE ILETISIME GECMEK ICIN KULLANILIT
+            Robot robot = new Robot();
+//          CONTROL TUSUNA BAS
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            ReusableMethods.waitFor(3);
+//            V TUSUNA BAS
+            robot.keyPress(KeyEvent.VK_V);
+            ReusableMethods.waitFor(3);
+            //releasing ctrl+v
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            ReusableMethods.waitFor(3);
+            robot.keyRelease(KeyEvent.VK_V);
+            ReusableMethods.waitFor(3);
+            System.out.println("YAPISTIRMA ISLEMI : PASSED");
+            //pressing enter
+            ReusableMethods.waitFor(3);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            ReusableMethods.waitFor(3);
+            //releasing enter
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            ReusableMethods.waitFor(3);
+            System.out.println("DOSYA YUKLENDI.");
+        }catch (Exception e){
+        }
+    }
 }

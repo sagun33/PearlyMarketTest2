@@ -16,7 +16,7 @@ public class US16_US14_US15 {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("url1"));
         assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
         homePage.signInButton.click();
         myAccount.userName.sendKeys("salihgunay");
@@ -194,6 +194,7 @@ public class US16_US14_US15 {
         storeManager.chooseImg.click();
         ReusableMethods.waitFor(3);
         String dosyaYolu = System.getProperty("user.home") + "/Desktop/logo.jpeg";
+        ReusableMethods.uploadFilePath(dosyaYolu);
         chooseImage.uploadFilesButton.click();
         chooseImage.selectFilesButton.click();
         ReusableMethods.waitFor(3);
