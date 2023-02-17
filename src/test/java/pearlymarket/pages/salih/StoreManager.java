@@ -12,7 +12,7 @@ public class StoreManager {
     @FindBy(xpath = "(//*[@class='text'])[4]")
     public WebElement productButton;
 
-    @FindBy(xpath = "(//*[@href='https://pearlymarket.com/store-manager/products-manage/'])[1]")
+    @FindBy(xpath = "//*[@class='wcfm_sub_menu_items wcfm_sub_menu_items_product_manage moz_class']")
     public WebElement addNew1;
 
     @FindBy(xpath = "//*[@value='simple']")

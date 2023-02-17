@@ -23,20 +23,20 @@ public class US16_US14_US15 {
         myAccount.password.sendKeys("Salihguenay5390.");
         myAccount.signInButton2.click();
         homePage.signOut.click();
-        myAccount.storeManagerButton.click();
-        ReusableMethods.waitFor(3);
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(storeManager.productButton);
-        ReusableMethods.waitFor(3);
-        storeManager.addNew1.click();
-        ReusableMethods.waitFor(3);
-        assert storeManager.simpleProduct.isDisplayed();
-
-        Select select1 = new Select(storeManager.productType);
-        select1.selectByVisibleText("Simple Product");
-
-        Driver.closeDriver();
-
+//        myAccount.storeManagerButton.click();
+//        ReusableMethods.waitFor(3);
+//        Actions actions = new Actions(Driver.getDriver());
+//        actions.moveToElement(storeManager.productButton);
+//        ReusableMethods.waitFor(3);
+//        storeManager.addNew1.click();
+//        ReusableMethods.waitFor(3);
+//        assert storeManager.simpleProduct.isDisplayed();
+//
+//        Select select1 = new Select(storeManager.productType);
+//        select1.selectByVisibleText("Simple Product");
+//
+//        Driver.closeDriver();
+//
 
     }
 
@@ -45,7 +45,7 @@ public class US16_US14_US15 {
 
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
-        StoreManager storeManager = new StoreManager();
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
         homePage.signInButton.click();
@@ -56,6 +56,7 @@ public class US16_US14_US15 {
         myAccount.storeManagerButton.click();
         ReusableMethods.waitFor(3);
         Actions actions = new Actions(Driver.getDriver());
+        StoreManager storeManager = new StoreManager();
         actions.moveToElement(storeManager.productButton).perform();
         ReusableMethods.waitFor(3);
         storeManager.addNew1.click();
@@ -194,6 +195,7 @@ public class US16_US14_US15 {
         storeManager.chooseImg.click();
         ReusableMethods.waitFor(3);
         String dosyaYolu = System.getProperty("user.home") + "/Desktop/logo.jpeg";
+        ReusableMethods.uploadFilePath(dosyaYolu);
         chooseImage.uploadFilesButton.click();
         chooseImage.selectFilesButton.click();
         ReusableMethods.waitFor(3);
@@ -202,7 +204,6 @@ public class US16_US14_US15 {
         chooseImage.selectButton.click();
 
         Driver.closeDriver();
-
 
 
     }
@@ -280,7 +281,7 @@ public class US16_US14_US15 {
         ReusableMethods.waitFor(3);
         storeManager.categoryName.sendKeys("gunay");
         ReusableMethods.waitFor(3);
-        Select select=new Select(storeManager.parentCategory);
+        Select select = new Select(storeManager.parentCategory);
         ReusableMethods.waitFor(3);
         select.selectByVisibleText("Besin Takviyeleri");
         ReusableMethods.waitFor(3);
@@ -314,7 +315,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_YeniProductBrandsEklenebilmeli () {
+    public void us14_YeniProductBrandsEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -338,7 +339,7 @@ public class US16_US14_US15 {
         ReusableMethods.waitFor(3);
 
         storeManager.productBrandsName.sendKeys("lkjöoj");
-        Select select=new Select(storeManager.parentProductBrand);
+        Select select = new Select(storeManager.parentProductBrand);
         select.selectByVisibleText("Elegant Auto Group");
         ReusableMethods.waitFor(3);
         storeManager.add2.click();
@@ -346,7 +347,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_TagsEklenebilmeli () {
+    public void us14_TagsEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();

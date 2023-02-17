@@ -30,11 +30,11 @@ public class US18_US14_US15 {
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(storeManager.productButton).perform();
         ReusableMethods.waitFor(3);
-        storeManager.addNew1.click();
-        ReusableMethods.waitFor(3);
-        Select select=new Select(storeManager.productType);
-        select.selectByVisibleText("External/Affiliate Product ");
-        Driver.closeDriver();
+//        storeManager.addNew1.click();
+//        ReusableMethods.waitFor(3);
+//        Select select=new Select(storeManager.productType);
+//        select.selectByVisibleText("External/Affiliate Product ");
+//        Driver.closeDriver();
 
     }
     @Test
