@@ -16,7 +16,7 @@ public class US16_US14_US15 {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("url1"));
         assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
         homePage.signInButton.click();
         myAccount.userName.sendKeys("salihgunay");
