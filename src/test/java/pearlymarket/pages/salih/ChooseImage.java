@@ -15,7 +15,7 @@ public class ChooseImage {
     @FindBy(id="__wp-uploader-id-1")
     public WebElement selectFilesButton;
 
-    @FindBy(xpath = "(//*[@type='button'])[88]")
+    @FindBy(xpath = "(//*[@type='button'])[206]")
     public WebElement selectButton;
 }
 

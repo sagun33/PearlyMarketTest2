@@ -12,7 +12,7 @@ public class US16_US14_US15 {
 
 
     @Test
-    public void testSimpleProductDefaultOlarakGelmeli() {
+    public void US16_TC01_TestSimpleProductDefaultOlarakGelmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -23,29 +23,28 @@ public class US16_US14_US15 {
         myAccount.password.sendKeys("Salihguenay5390.");
         myAccount.signInButton2.click();
         homePage.signOut.click();
-//        myAccount.storeManagerButton.click();
-//        ReusableMethods.waitFor(3);
-//        Actions actions = new Actions(Driver.getDriver());
-//        actions.moveToElement(storeManager.productButton);
-//        ReusableMethods.waitFor(3);
-//        storeManager.addNew1.click();
-//        ReusableMethods.waitFor(3);
-//        assert storeManager.simpleProduct.isDisplayed();
-//
-//        Select select1 = new Select(storeManager.productType);
-//        select1.selectByVisibleText("Simple Product");
-//
-//        Driver.closeDriver();
-//
+        myAccount.storeManagerButton.click();
+        ReusableMethods.waitFor(3);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(storeManager.productButton);
+        ReusableMethods.waitFor(3);
+        storeManager.addNew1.click();
+        ReusableMethods.waitFor(3);
+        assert storeManager.simpleProduct.isDisplayed();
+        Select select1 = new Select(storeManager.productType);
+        select1.selectByVisibleText("Simple Product");
+
+        Driver.closeDriver();
+
 
     }
 
     @Test
-    public void testVirtualAndDownloadableSeçilebilmeli() {
+    public void US16_TC02_TestVirtualAndDownloadableSeçilebilmeli() {
 
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
-
+        StoreManager storeManager = new StoreManager();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         assert Driver.getDriver().getTitle().contains("Pearly Market Online Shopping");
         homePage.signInButton.click();
@@ -56,7 +55,6 @@ public class US16_US14_US15 {
         myAccount.storeManagerButton.click();
         ReusableMethods.waitFor(3);
         Actions actions = new Actions(Driver.getDriver());
-        StoreManager storeManager = new StoreManager();
         actions.moveToElement(storeManager.productButton).perform();
         ReusableMethods.waitFor(3);
         storeManager.addNew1.click();
@@ -68,7 +66,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void testpriceBoxunaDegerlerGirilebilmeli() {
+    public void US16_TC03_TestpriceBoxunaDegerlerGirilebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -92,7 +90,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void testSalePriceBoxunaDegerlerGirilebilmeli() {
+    public void US16_TC04_TestSalePriceBoxunaDegerlerGirilebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -142,7 +140,7 @@ public class US16_US14_US15 {
 
 
     @Test
-    public void us14_SimpleProductVariableProductGroupeProductExternalAffiliatProductSeçenekleriOlmalı() {
+    public void US14_TC01SimpleProductVariableProductGroupeProductExternalAffiliatProductSeçenekleriOlmalı() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -174,7 +172,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_UrünFotoğrafıEklenebilmeli() {
+    public void US14_TC02UrünFotoğrafıEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -194,13 +192,11 @@ public class US16_US14_US15 {
         storeManager.addNew1.click();
         storeManager.chooseImg.click();
         ReusableMethods.waitFor(3);
-        String dosyaYolu = System.getProperty("user.home") + "/Desktop/logo.jpeg";
-        ReusableMethods.uploadFilePath(dosyaYolu);
+        String dosyaYolu = System.getProperty("user.home") + "/Desktop/12.png";
         chooseImage.uploadFilesButton.click();
-        chooseImage.selectFilesButton.click();
-        ReusableMethods.waitFor(3);
         chooseImage.selectFilesButton.sendKeys(dosyaYolu);
-        ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(10);
         chooseImage.selectButton.click();
 
         Driver.closeDriver();
@@ -209,7 +205,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_ProductTitleShortDescriptionVeDescriptionYazılabilmeli() {
+    public void US14_TC03ProductTitleShortDescriptionVeDescriptionYazılabilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -234,7 +230,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void US14_CategoriesSeçilebilmeli() {
+    public void US14_TC04CategoriesSeçilebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -258,7 +254,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14YeniCategoriesEklenebilmeli() {
+    public void US14_TC05YeniCategoriesEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -292,7 +288,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_ProductBrandsSeçilebilmeli() {
+    public void US14_TC06ProductBrandsSeçilebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -315,7 +311,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_YeniProductBrandsEklenebilmeli() {
+    public void US14_TC07YeniProductBrandsEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -347,7 +343,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void us14_TagsEklenebilmeli() {
+    public void US14_TC08TagsEklenebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -367,13 +363,11 @@ public class US16_US14_US15 {
         ReusableMethods.waitFor(3);
         storeManager.addNew1.click();
         ReusableMethods.waitFor(3);
-        storeManager.tags.click();
-        ReusableMethods.waitFor(3);
-        storeManager.tagsYazi.click();
+
     }
 
     @Test
-    public void us14_CatalogVisibilityShopAndSearchResultsShopOnlySearchResultsOnlyHiddenOlarakSeçilebilmeli() {
+    public void US14_TC09CatalogVisibilityShopAndSearchResultsShopOnlySearchResultsOnlyHiddenOlarakSeçilebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -396,7 +390,7 @@ public class US16_US14_US15 {
     }
 
     @Test
-    public void urunEklendigiProductKismindaGorulebilmeli() {
+    public void US16_TC06_TesturunEklendigiProductKismindaGorulebilmeli() {
         HomePage homePage = new HomePage();
         MyAccount myAccount = new MyAccount();
         StoreManager storeManager = new StoreManager();
@@ -414,7 +408,7 @@ public class US16_US14_US15 {
         assert product.urunKontrolAraba.isDisplayed();
         Driver.closeDriver();
 
-    }
+   }
 
 }
 

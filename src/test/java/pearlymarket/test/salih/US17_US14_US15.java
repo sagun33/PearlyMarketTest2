@@ -10,7 +10,7 @@ import pearlymarket.utilities.ReusableMethods;
 
 public class US17_US14_US15 {
     @Test
-    public void VendorOlarakVariableProductSecilebilmeli(){
+    public void US17_TC01VendorOlarakVariableProductEklenebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
@@ -37,13 +37,13 @@ public class US17_US14_US15 {
 
     }
     @Test
-    public void uruneGöreAttributesColorVeSizeSeçilebilmeli(){
+    public void US17_TC02UruneGöreAttributesColorVeSizeSeçilebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
         ChooseImage chooseImage=new ChooseImage();
         Product product=new Product();
-        VendorOlarakVariableProductSecilebilmeli();
+        US17_TC01VendorOlarakVariableProductEklenebilmeli();
         storeManager.productTitle.sendKeys("bilgisayar");
         storeManager.attributes.click();//tiklayamadim
         storeManager.colorRadioButton.click();
@@ -57,13 +57,13 @@ public class US17_US14_US15 {
 
     }
     @Test
-    public void yeniColorEklenebilmeli(){
+    public void US17_TC03YniColorEklenebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
         ChooseImage chooseImage=new ChooseImage();
         Product product=new Product();
-        VendorOlarakVariableProductSecilebilmeli();
+        US17_TC01VendorOlarakVariableProductEklenebilmeli();
         storeManager.productTitle.sendKeys("bilgisayar");
         storeManager.attributes.click();//tiklayamadim ???????
         storeManager.colorRadioButton.click();
@@ -75,13 +75,13 @@ public class US17_US14_US15 {
 
     }
     @Test
-    public void yeniSizeEklenebilmeli(){
+    public void US17_TC04YeniSizeEklenebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
         ChooseImage chooseImage=new ChooseImage();
         Product product=new Product();
-        VendorOlarakVariableProductSecilebilmeli();
+        US17_TC01VendorOlarakVariableProductEklenebilmeli();
         storeManager.productTitle.sendKeys("bilgisayar");
         storeManager.attributes.click();//tiklayamadim ???????
         storeManager.sizeRadioButton.click();
@@ -94,13 +94,13 @@ public class US17_US14_US15 {
     }
 
     @Test
-    public void variationsaTıklanarakEklenenAtributesGörülebilmeli(){
+    public void US17_TC05VariationsaTıklanarakEklenenAtributesGörülebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
         ChooseImage chooseImage=new ChooseImage();
         Product product=new Product();
-        VendorOlarakVariableProductSecilebilmeli();
+        US17_TC01VendorOlarakVariableProductEklenebilmeli();
         storeManager.productTitle.sendKeys("bilgisayar");
         storeManager.variations.click();   //????????
 
@@ -109,13 +109,13 @@ public class US17_US14_US15 {
     }
 
     @Test
-    public void eklenenAtributesaGöreUrünBilgileriSeilipUrünOzellikleriDoldurulabilmeli(){
+    public void US17_TC06EklenenAtributesaGöreUrünBilgileriSeilipUrünOzellikleriDoldurulabilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
         ChooseImage chooseImage=new ChooseImage();
         Product product=new Product();
-        VendorOlarakVariableProductSecilebilmeli();
+        US17_TC01VendorOlarakVariableProductEklenebilmeli();
         storeManager.productTitle.sendKeys("bilgisayar");
         storeManager.variations.click(); //??????
 
@@ -123,7 +123,7 @@ public class US17_US14_US15 {
 
     }
     @Test
-    public void urününEklendiğiniProductKısmındaGörebilmeli(){
+    public void US17_TC07UrününEklendiğiniProductKısmındaGörebilmeli(){
         HomePage homePage=new HomePage();
         MyAccount myAccount=new MyAccount();
         StoreManager storeManager=new StoreManager();
